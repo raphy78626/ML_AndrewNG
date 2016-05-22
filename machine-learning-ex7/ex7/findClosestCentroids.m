@@ -21,10 +21,15 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
-
-
-
-
+for point = 1:size(X,1),
+  min_distance= sum((X(point,:)-centroids(1,:)).^2);
+  for centroid = 1:K,
+    if (sum((X(point,:)-centroids(centroid,:)).^2) <= min_distance),
+      min_distance = sum((X(point,:)-centroids(centroid,:)).^2);
+      idx(point) = centroid;
+    end;  
+  end;
+end;
 
 
 % =============================================================

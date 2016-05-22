@@ -25,14 +25,15 @@ centroids = zeros(K, n);
 %
 % Note: You can use a for-loop over the centroids to compute this.
 %
-
-
-
-
-
-
-
-
+for K_value=1:K,
+  rows_K = [];
+  for row=1:m,
+    if idx(row) == K_value,
+      rows_K = [rows_K; X(row, :)];
+    end;  
+  end;
+  centroids(K_value,:)= mean(rows_K)
+end;
 % =============================================================
 
 
